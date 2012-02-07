@@ -1,5 +1,15 @@
 <?php define( 'HOVEDSPRING_FORBUDT_VERSION', '0.6' );
 
+add_action( 'after_setup_theme', 'theme_setup' );
+
+if ( ! function_exists( 'theme_setup' ) ) :
+	function theme_setup() {
+		// Load theme options
+		require_once( get_template_directory() . '/theme-options.php' );
+		//include( get_template_directory() . '/theme-updater.php' );
+	}
+endif;
+
 // Back-End functions
 
 // Disable the autosave function
