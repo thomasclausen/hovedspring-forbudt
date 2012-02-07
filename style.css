@@ -1,0 +1,195 @@
+/*
+Theme Name: HOVEDSPRING FORBUDT
+Theme URI: http://www.lær-at-svømme.nu
+Description: HOVEDSPRING FORBUDT i den lave ende.
+Author: Thomas Clausen
+Author URI: http://www.thomasclausen.dk
+Version: 0.5
+Tags: blue, white, one-column, responsive
+
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ + http://html5doctor.com/html-5-reset-stylesheet/ */
+/* v2.0 | 20110126 + v1.6.1 | Last Updated: 2010-09-17 */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; font: inherit; vertical-align: baseline; background: transparent; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* CUSTOM FONT */
+@font-face {
+	font-family: 'MuseoSlab500';
+	src: url('fonts/Museo_Slab_500-webfont.eot');
+	src: url('fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/Museo_Slab_500-webfont.woff') format('woff'),
+		 url('fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+		 url('fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'MuseoSans500';
+	src: url('fonts/MuseoSans_500-webfont.eot');
+	src: url('fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_500-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_500-webfont.ttf') format('truetype'),
+		 url('fonts/MuseoSans_500-webfont.svg#MuseoSans500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@-moz-keyframes update-spinner {
+	from { -moz-transform: rotate(360deg); }
+	to { -moz-transform: rotate(0deg); }
+}
+@-webkit-keyframes update-spinner {
+	from { -webkit-transform: rotate(360deg); }
+	to { -webkit-transform: rotate(0deg); }
+}
+@-ms-keyframes update-spinner {
+	from { -webkit-transform: rotate(360deg); }
+	to { -webkit-transform: rotate(0deg); }
+}
+@keyframes update-spinner {
+	from { transform: rotate(360deg); }
+	to { transform: rotate(0deg); }
+}
+
+/* SELECTION COLORS */
+::selection { background: rgb(255,255,158); }
+::-moz-selection { background: rgb(255,255,158); }
+img::selection { background: transparent; }
+img::-moz-selection { background: transparent; }
+body { -webkit-tap-highlight-color: rgb(255,255,158); }
+
+/*	Less Framework 4 */
+
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+body { width: 620px; font: 62.5% Arial, Helvetica, Verdana, sans-serif; line-height: 1.5em; color: #6e6e6e; padding: 70px 0 80px 0; margin: 0 auto; background: #e2f4fe url('images/bg.jpg') 50% 50%; -webkit-text-size-adjust: 100%; }
+h1 { font: 4.8em 'MuseoSlab500'; font-weight: normal; line-height: 1.25em; color: #6496af; margin-bottom: 17px; text-shadow: 3px 2px 0 rgba(255, 255, 255, 0.6); }
+h2 { font: 3.6em 'MuseoSlab500'; font-weight: normal; line-height: 1.25em; color: #c7d7e0; margin-bottom: 20px; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); }
+p { font-size: 1.4em; line-height: 1.5em; margin-bottom: 1.5em; }
+.post p { font: 2em 'MuseoSans500'; line-height: 1.25em; margin-bottom: 0; }
+p p { font-size: 1em; }
+a { color: #333; }
+a:hover, a:focus { text-decoration: none; }
+em, i { font-style: italic; }
+strong, b { font-weight: bold; }
+sup, sub { vertical-align: baseline; position: relative; top: -0.4em; }
+sub { top: 0.4em; }
+
+header { margin-bottom: 51px; }
+header img { width: 624px; margin: 0 -2px; }
+
+section { margin: 0 48px; position: relative; }
+section article { position: relative; }
+section .page { padding-bottom: 24px; margin-bottom: 32px; background: url('images/seperator.png') no-repeat 50% 100%; }
+section .post { text-transform: uppercase; margin: 0 24px; }
+section #update-icon { width: 34px; height: 34px; margin: -17px 0 0 -17px; background: rgba(0, 0, 0, 0.6) url(images/refresh.png) no-repeat 50% 50%; position: absolute; top: 50%; left: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; -khtml-border-radius: 50%; border-radius: 50%; }
+.no-js section #update-icon { display: none; }
+section #update-icon { -moz-animation: update-spinner 1s linear infinite; -webkit-animation: update-spinner 1s linear infinite; -ms-animation: update-spinner 1s linear infinite; animation: update-spinner 1s linear infinite; }
+
+nav { padding: 20px 0; }
+nav a { -moz-transition-duration: .4s; -webkit-transition-duration: .4s; transition-duration: .4s; }
+nav a:hover { -moz-transition-duration: .4s; -webkit-transition-duration: .4s; transition-duration: .4s; }
+
+nav a#update { font: 1em 'MuseoSans500'; font-weight: bold; text-decoration: none; text-transform: uppercase; color: #fff; padding: 10px 12px 9px 33px; background: #8f8f8f url(images/refresh.png) no-repeat 12px 50%; float: right; display: inline; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); -moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; filter: alpha(opacity=40); -moz-opacity: 0.4; -khtml-opacity: 0.4; opacity: 0.4; }
+nav a#update:hover { background: #6496af url(images/refresh.png) no-repeat 12px 50%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100); -moz-opacity: 1; -khtml-opacity: 1; opacity: 1; }
+nav a.social { width: 24px; height: 24px; margin: 4px 4px 0 0; background: #8f8f8f url(images/social.png) no-repeat 0 0; float: left; display: inline; overflow: hidden; text-indent: -2000px; box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); -moz-border-radius: 50%; -webkit-border-radius: 50%; -khtml-border-radius: 50%; border-radius: 50%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)"; filter: alpha(opacity=20); -moz-opacity: 0.2; -khtml-opacity: 0.2; opacity: 0.2; }
+nav a.social:hover { background: #6496af url(images/social.png) no-repeat 0 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100); -moz-opacity: 1; -khtml-opacity: 1; opacity: 1; }
+nav a#permalink { background-position: 0 0; }
+nav a#permalink:hover { opacity: 1; }
+nav a#twitter { background-color: #3cf; background-position: -24px 0; }
+nav a#twitter:hover { opacity: 1; }
+nav a#facebook { background-color: #3b5998; background-position: -48px 0; }
+nav a#facebook:hover { opacity: 1; }
+nav a#google { background-color: #0470d8; background-position: -72px 0; }
+nav a#google:hover { opacity: 1; }
+
+/* CLEARFIX */
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+spacer-gif { display: none; }
+
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	body { width: 252px; padding: 40px 0 40px 0; }
+	h1 { font-size: 3em; text-shadow: 2px 1px 0 rgba(255, 255, 255, 0.6); }
+	h2 { font-size: 1.8em; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2); }
+	p { font-size: 1.2em; }
+	.post p { font: 1.4em 'MuseoSans500'; line-height: 1.25em; margin-bottom: 0; }
+	p p { font-size: 1em; }
+	header { margin-bottom: 31px; }
+	header img { width: 100%; height: auto; }
+	section { margin: 0 24px; }
+	section .post { text-transform: uppercase; margin: 0 14px; }
+}
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	body { width: 436px; padding: 70px 0 40px 0; }
+	h1 { font-size: 4.8em; text-shadow: 3px 2px 0 rgba(255, 255, 255, 0.6); }
+	h2 { font-size: 3.6em; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); }
+	p { font-size: 1.4em; }
+	.post p { font: 1.6em 'MuseoSans500'; line-height: 1.25em; margin-bottom: 0; }
+	p p { font-size: 1em; }
+	header { margin-bottom: 51px; }
+	section { margin: 0 48px; }
+	section .post { text-transform: uppercase; margin: 0 24px; }
+}
+
+
+/*	Retina media query.
+	Overrides styles for devices with a 
+	device-pixel-ratio of 2+, such as iPhone 4.
+-----------------------------------------------    */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+	
+}
