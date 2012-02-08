@@ -89,17 +89,6 @@ function theme_updater_notice_theme_ajax_update() {
 }
 add_action( 'wp_ajax_theme_updater_notice_theme', 'theme_updater_notice_theme_ajax_update' );
 
-// Enable notice?
-/*$suppress_enable_notice = get_user_meta( get_current_user_id(), 'social_suppress_enable_notice', true );
-if ( empty( $suppress_enable_notice ) ) {
-	$message = __( 'When you enable Social, users will be created when they log in with Facebook or Twitter to comment. These users are created without a role and will be prevented from accessing the admin side of WordPress until an administrator edits the user to give them a role.', 'social' );
-	$dismiss = sprintf( __( '<a href="%s" class="social_dismiss">[Dismiss]</a>', 'social' ), esc_url( admin_url( 'index.php?social_controller=settings&social_action=suppress_enable_notice' ) ) );
-	echo '<div class="updated"><p>' . $message . ' ' . $dismiss . '</p></div>';
-}
-
-add_action( 'admin_notices', 'example_nag_ignore' );
-add_action( 'admin_init', 'example_nag_ignore' );*/
-
 function theme_updater_page() {
 	$theme_latest_data = get_theme_latest_data();
 	$theme_data = get_theme_current_data(); ?>
@@ -151,63 +140,16 @@ function theme_updater_page() {
 			print_r( $theme_latest_data['Changelog'] );
 			echo '--></pre>'; ?>
 		</div>
-		<div class="hr-divider"></div>
-		<h3 class="yellow"><?php _e( 'Test stor ned', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<h3 class="yellow"><?php _e( '&nbsp;&nbsp;Test ned&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down"></div></h3>
-		<h3 class="yellow"><?php _e( '&nbsp;&nbsp;Test op&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-up"></div></h3>
-		<div class="hr-divider"></div>
-		<h3 class="blue"><?php _e( '&nbsp;&nbsp;&nbsp;&nbsp;Bl&aring;&nbsp;&nbsp;&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<h3 class="orange"><?php _e( '&nbsp;&nbsp;Orange&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<h3 class="pink"><?php _e( '&nbsp;&nbsp;&nbsp;&nbsp;Pink&nbsp;&nbsp;&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<h3 class="green"><?php _e( '&nbsp;&nbsp;&nbsp;&nbsp;Gr&oslash;n&nbsp;&nbsp;&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<h3 class="yellow"><?php _e( '&nbsp;&nbsp;&nbsp;&nbsp;Gul&nbsp;&nbsp;&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<h3 class="red"><?php _e( '&nbsp;&nbsp;&nbsp;&nbsp;R&oslash;d&nbsp;&nbsp;&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<h3 class="grey"><?php _e( '&nbsp;&nbsp;&nbsp;&nbsp;Gr&aring;&nbsp;&nbsp;&nbsp;&nbsp;', 'theme-updater' ); ?><div class="nip nip-down-large"></div></h3>
-		<!-- <ol>
-			<li><?php _e( 'A little bit of work on an upgrade now saves a lot of work fixing something later.', 'theme-updater' ); ?></li>
-			<li><?php _e( 'Upgrading is taking your vitamins; fixing a hack is open heart surgery.', 'theme-updater' ); ?></li>
-			<li><?php _e( 'Spend a lot of time looking through the coding behind the WordPress Platform trying to find ways to exploit it.', 'theme-updater' ); ?></li>
-		</ol>
-		<div class="hr-divider"></div>
-
-		// Hide the plugin update indicator
-		function hide_plugin_update_indicator(){
-			global $menu, $submenu;
-			$menu[65][0] = 'Plugins';
-			$submenu['index.php'][10][0] = 'Updates';
-		}
-		add_action( 'admin_menu', 'hide_plugin_update_indicator' );
-
-		function wp_maintenance_mode() {
-			if ( !is_user_logged_in() || !current_user_can( 'manage_options' ) ) {
-				wp_die( 'Site is undergoing maintenance at the moment, please come back after some time.' );
-			}
-		}
-		add_action( 'get_header', 'wp_maintenance_mode' );
-
-		// Kig p&aring; Social
-
-		wptheming.com
-		
-		http://lud.icro.us/wordpress-http-api-basicauth/
-		http://www.daveligthart.com/wp-stats-dashboard-10/
-		http://austinpassy.com/portfolio/
-		http://wptheming.com/2010/02/dashboard-support-widgets/
-		http://www.premiumpixels.com/wordpress-themes/w -->
 	</div>
 <?php }
 
 function theme_updater_admin_css_and_js() {
-	//global $hook_suffix;
-
 	wp_register_style( 'theme-updater', THEME_UPDATER_PLUGIN_URL . 'theme-updater.css', array(), THEME_UPDATER_VERSION );
 	wp_enqueue_style( 'theme-updater' );
 
-	//if ( $hook_suffix == 'dashboard_page_theme-updater' ) {
-		wp_register_script( 'theme-updater-script', THEME_UPDATER_PLUGIN_URL . 'theme-updater.js', array( 'jquery' ), THEME_UPDATER_VERSION );
-		wp_enqueue_script( 'theme-updater-script' );
-		wp_localize_script( 'theme-updater-script', 'themeupdaterAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'core_nonce' => wp_create_nonce( 'theme_updater_notice_core' ), 'theme_nonce' => wp_create_nonce( 'theme_updater_notice_theme' ) ) );
-	//}
+	wp_register_script( 'theme-updater-script', THEME_UPDATER_PLUGIN_URL . 'theme-updater.js', array( 'jquery' ), THEME_UPDATER_VERSION );
+	wp_enqueue_script( 'theme-updater-script' );
+	wp_localize_script( 'theme-updater-script', 'themeupdaterAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'theme_nonce' => wp_create_nonce( 'theme_updater_notice_theme' ) ) );
 }
 
 function theme_updater_init() {
