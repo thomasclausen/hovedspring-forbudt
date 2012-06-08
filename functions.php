@@ -37,10 +37,10 @@ add_action( 'admin_menu', 'theme_remove_menus', 999 );
 // Add input fields for facebook, twitter etc. and remove unwanted ones for user profiles
 function theme_user_profile( $contactmethods ) {
 	$contactmethods = array(
-		'twitter' => __( 'Twitter' ),
-		'facebook' => __( 'Facebook' ),
-		'googleplus' => __( 'Google+' ),
-		'skype' => __( 'Skype' )
+		'twitter' => __( 'Twitter', 'hovedspring-forbudt' ),
+		'facebook' => __( 'Facebook', 'hovedspring-forbudt' ),
+		'googleplus' => __( 'Google+', 'hovedspring-forbudt' ),
+		'skype' => __( 'Skype', 'hovedspring-forbudt' )
 	);
 	
 	unset( $contactmethods['aim'] );
