@@ -100,7 +100,7 @@ section { margin: 0 48px; position: relative; }
 section article { position: relative; }
 section .page { padding-bottom: 24px; margin-bottom: 32px; background: url('images/seperator.png') no-repeat 50% 100%; }
 section .post { text-transform: uppercase; margin: 0 24px; }
-section #update-icon { width: 34px; height: 34px; margin: -17px 0 0 -17px; background: rgba(0, 0, 0, 0.6) url(images/refresh.png) no-repeat 50% 50%; position: absolute; top: 50%; left: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; -khtml-border-radius: 50%; border-radius: 50%; }
+section #update-icon { width: 34px; height: 34px; margin: -17px 0 0 -17px; background: rgba(0, 0, 0, 0.6) url(images/refresh.png) no-repeat 50% 50%; display: none; position: absolute; top: 50%; left: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; -khtml-border-radius: 50%; border-radius: 50%; }
 .no-js section #update-icon { display: none; }
 section #update-icon { -moz-animation: update-spinner 1s linear infinite; -webkit-animation: update-spinner 1s linear infinite; -ms-animation: update-spinner 1s linear infinite; animation: update-spinner 1s linear infinite; }
 
