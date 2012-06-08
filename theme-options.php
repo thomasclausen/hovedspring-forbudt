@@ -7,10 +7,10 @@ function theme_options_array() {
 		),
 		array(
 			'type' => 'textarea',
-			'label' => __( 'Google Analytics', 'hovedspring_forbudt' ),
+			'label' => __( 'Google Analytics', 'hovedspring-forbudt' ),
 			'id' => 'google_analytics',
-			'description' => __( 'Inds&aelig;t din Google Analytics kode (eller kode fra andre services) her.<br />Koden vil automatisk blive indsat lige f&oslash;r <code>&lt;/body&gt;</code>.', 'hovedspring_forbudt' ),
-			'value' => __( '', 'hovedspring_forbudt' ),
+			'description' => __( 'Inds&aelig;t din Google Analytics kode (eller kode fra andre services) her.<br />Koden vil automatisk blive indsat lige f&oslash;r <code>&lt;/body&gt;</code>.', 'hovedspring-forbudt' ),
+			'value' => __( '', 'hovedspring-forbudt' ),
 			'rows' => '10'
 		),
 		array(
@@ -37,7 +37,7 @@ function theme_options_page() {
 	</style>
 	<div class="wrap">
 		<?php screen_icon(); echo '<h2>' . __( 'Theme Options' ) . '</h2>'; ?>
-		<?php if ( false !== $_REQUEST['settings-updated'] ) : ?><div class="updated fade"><p><strong><?php _e( 'Indstillingerne er gemt', 'hovedspring_forbudt' ); ?></strong></p></div><?php endif; ?>
+		<?php if ( false !== $_REQUEST['settings-updated'] ) : ?><div class="updated fade"><p><strong><?php _e( 'Indstillingerne er gemt', 'hovedspring-forbudt' ); ?></strong></p></div><?php endif; ?>
 		<form method="post" action="options.php">
 			<?php settings_fields( 'theme_options' ); ?>
 			<?php $settings = get_option( 'hovedspring_forbudt_theme_options' ); ?>
@@ -129,7 +129,7 @@ function theme_options_page() {
 						break;
 				}
 			} ?>
-			<p class="submit"><input type="submit" name="submit" value="<?php _e( 'Gem &aelig;ndringer', 'hovedspring_forbudt' ) ?>" class="button-primary" /></p>
+			<p class="submit"><input type="submit" name="submit" value="<?php _e( 'Gem &aelig;ndringer', 'hovedspring-forbudt' ) ?>" class="button-primary" /></p>
 		</form>
 	</div>
 <?php }
