@@ -1,7 +1,6 @@
 (function($) {
 	$(document).ready(function(){
 		$('html').removeClass('no-js');
-		$('section #update-icon').hide();
 		if(!$.browser.msie) {
 			$('nav a#update').live('click', function() {
 				$('section #update-icon').fadeIn(400);
