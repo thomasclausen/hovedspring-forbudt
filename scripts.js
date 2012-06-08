@@ -1,15 +1,12 @@
 (function($) {
 	$(document).ready(function(){
 		$('html').removeClass('no-js');
-		$('section #update-icon').hide();
 		if(!$.browser.msie) {
 			$('nav a#update').live('click', function() {
-				$('section #update-icon').fadeIn(400);
 				var data = { action: 'fakta_update', security: hovedspringforbudtAjax.nonce };
 				$.post(hovedspringforbudtAjax.ajaxurl, data, function(response) {
 					var $nav = $('section.post nav').clone();
 					$('section.post').empty().append(response, $nav);
-					$('section #update-icon').fadeOut(400);
 				});
 				return false;
 			});
