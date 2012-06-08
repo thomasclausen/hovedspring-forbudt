@@ -33,11 +33,11 @@
 			endwhile; ?>
 		<?php endif; ?>
 		<nav>
-			<a href="<?php echo home_url(); ?>" title="Vis ny fakta" id="update">Vis ny fakta</a>
-			<a href="#/permalink" title="Direkte link" id="permalink" class="social">Direkte link</a>
-			<a href="#/twitter" title="Twitter" id="twitter" class="social">Twitter</a>
-			<a href="#/facebook" title="Facebook" id="facebook" class="social">Facebook</a>
-			<a href="#/googleplus" title="Google Plus" id="google" class="social">Google Plus</a>
+			<a href="<?php echo home_url(); ?>" title="<?php _e( 'Vis ny fakta', 'hovedspring-forbudt' ); ?>" id="update"><?php _e( 'Vis ny fakta', 'hovedspring-forbudt' ); ?></a>
+			<a href="#/permalink" title="<?php _e( 'Direkte link', 'hovedspring-forbudt' ); ?>" id="permalink" class="social"><?php _e( 'Direkte link', 'hovedspring-forbudt' ); ?></a>
+			<a href="#/twitter" title="<?php _e( 'Twitter', 'hovedspring-forbudt' ); ?>" id="twitter" class="social"><?php _e( 'Twitter', 'hovedspring-forbudt' ); ?></a>
+			<a href="#/facebook" title="<?php _e( 'Facebook', 'hovedspring-forbudt' ); ?>" id="facebook" class="social"><?php _e( 'Facebook', 'hovedspring-forbudt' ); ?></a>
+			<a href="#/googleplus" title="<?php _e( 'Google Plus', 'hovedspring-forbudt' ); ?>" id="google" class="social"><?php _e( 'Google Plus', 'hovedspring-forbudt' ); ?></a>
 		</nav>
 	</section>
 
