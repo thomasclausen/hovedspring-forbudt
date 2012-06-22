@@ -1,4 +1,4 @@
-<?php define( 'HOVEDSPRING_FORBUDT_VERSION', '0.6' );
+<?php define( 'HOVEDSPRING_FORBUDT_VERSION', '2.0' );
 
 add_action( 'after_setup_theme', 'theme_setup' );
 
