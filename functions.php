@@ -67,8 +67,6 @@ function theme_scripts() {
 	wp_register_style( 'hovedspring-forbudt', get_stylesheet_uri(), false, HOVEDSPRING_FORBUDT_VERSION );
 	wp_enqueue_style( 'hovedspring-forbudt' );
 	if ( ! is_404() ) :
-		//wp_deregister_script( 'jquery' );
-		//wp_register_script( 'jquery', ( 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js' ), false, '1.6.4' );
 		wp_enqueue_script( 'jquery' );
 		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/scripts.js', array( 'jquery' ), HOVEDSPRING_FORBUDT_VERSION );
 		wp_enqueue_script( 'hovedspring-forbudt-script' );
@@ -84,14 +82,12 @@ function theme_pingback() {
 add_action( 'wp_head', 'theme_pingback' );
 
 // Favicon
-function theme_favicon() {
-	echo '<link rel="shortcut icon" href="' . get_template_directory_uri() . '/images/favicon.gif" sizes="16x16" type="image/gif" />' . "\n";
-	echo '<link rel="icon" href="' . get_template_directory_uri() . '/images/favicon.gif" sizes="16x16" type="image/gif" />' . "\n";
+function theme_icons() {
 	echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/images/apple-touch-icon-57x57.png" />' . "\n";
 	echo '<link rel="apple-touch-icon" sizes="72x72" href="' . get_template_directory_uri() . '/images/apple-touch-icon-72x72.png" />' . "\n";
 	echo '<link rel="apple-touch-icon" sizes="114x114" href="' . get_template_directory_uri() . '/images/apple-touch-icon-114x114.png" />' . "\n";
 }
-//add_action( 'wp_head', 'theme_favicon' );
+add_action( 'wp_head', 'theme_icons' );
 
 function fakta_ajax_update() {
 	check_ajax_referer( 'fakta_update', 'security' );
