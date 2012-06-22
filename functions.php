@@ -10,6 +10,10 @@ if ( ! function_exists( 'theme_setup' ) ) :
 	}
 endif;
 
+if ( ! isset( $content_width ) ) :
+	$content_width = 524;
+endif;
+
 // Back-End functions
 
 // Disable the autosave function
