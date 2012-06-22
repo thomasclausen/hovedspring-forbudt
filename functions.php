@@ -1,4 +1,4 @@
-<?php define( 'HOVEDSPRING_FORBUDT_VERSION', '0.5' );
+<?php define( 'HOVEDSPRING_FORBUDT_VERSION', '1.0' );
 
 // Back-End functions
 
