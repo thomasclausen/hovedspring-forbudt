@@ -9,11 +9,11 @@
 <title><?php wp_title( '', true, 'right' ); ?></title>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<meta name="viewport" content="width=device-width, maximum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, maximum-scale=1" />
 <meta name="description" content="" />
 <meta property="og:description" content="" />
-<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/logo-facebook.jpg">
+<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/logo-facebook.jpg" />
 <link rel="image_src" href="<?php echo get_template_directory_uri(); ?>/images/logo-facebook.jpg" />
 <?php wp_head(); ?>
 <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
