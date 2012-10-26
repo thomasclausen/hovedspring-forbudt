@@ -26,7 +26,7 @@
 				<?php endwhile; ?>
 			<?php endif; ?>
 		<?php else : ?>
-			<?php $args = array( 'post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'rand', 'posts_per_page' => 1 );
+			<?php $args = array( 'post_type' => 'fakta', 'post_status' => 'publish', 'orderby' => 'rand', 'posts_per_page' => 1 );
 			$random_facts = new WP_Query( $args );
 			while ( $random_facts->have_posts() ) : $random_facts->the_post();
 				get_template_part( 'content', $theme_post_format );
