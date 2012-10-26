@@ -1,0 +1,17 @@
+/*
+Theme Name: HOVEDSPRING FORBUDT
+Description: Used to style the TinyMCE editor.
+*/
+
+* { font: 14px Arial, Helvetica, Verdana, sans-serif; font-style: inherit; font-weight: inherit; line-height: 21px; color: inherit; }
+
+
+body { font: 14px Arial, Helvetica, Verdana, sans-serif;  line-height: 21px; color: #6e6e6e; }
+p { margin-bottom: 1.5em; }
+a { color: #333; }
+a:hover, a:focus { text-decoration: none; }
+em, i { font-style: italic; }
+strong, b { font-weight: bold; }
+
+.mceContentBody { max-width: 524px; }
+.mceContentBody.post-type-fakta {}
