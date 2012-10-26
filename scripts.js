@@ -3,7 +3,7 @@
 		$('html').removeClass('no-js');
 		if(!$.browser.msie) {
 			$('nav a#update').live('click', function() {
-				var data = { action: 'fakta_update', security: hovedspringforbudtAjax.nonce };
+				var data = { action: 'hovedspringforbudt_update', security: hovedspringforbudtAjax.nonce };
 				$.post(hovedspringforbudtAjax.ajaxurl, data, function(response) {
 					var $nav = $('section.post nav').clone();
 					$('section.post').empty().append(response, $nav);
@@ -12,10 +12,9 @@
 			});
 		}
 		$('nav a.social').live('click', function() {
-			var fact_ID = $(this).parent().siblings('.post').attr('id');
-			var share_url = 'http://xn--lr-at-svmme-98a5v.nu/fakta/' + (parseInt(fact_ID.replace('post-', '')) - 1) + '/';
+			var share_url = $(this).parent().siblings('.fakta').attr('data-permalink');
 			var share_title = $(this).parent().siblings('h2').text();
-			var share_content = $(this).parent().siblings('.post').find('p').text();
+			var share_content = $(this).parent().siblings('.fakta').find('p').text();
 			var share_image = $('head link[rel=image_src]').attr('href');
 			if ($(this).attr('id') == 'twitter') {
 				if (share_content.length > 105) {
