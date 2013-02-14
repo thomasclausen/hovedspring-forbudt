@@ -4,7 +4,7 @@
  *
  * @package HOVEDSPRING FORBUDT
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.4
+ * @last_updated HOVEDSPRING FORBUDT 2.6
  */
 
 /**
@@ -194,16 +194,16 @@ remove_action( 'wp_head', 'feed_links_extra', 3 );
  * Enqueue scripts and styles
  *
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.0
+ * @last_updated HOVEDSPRING FORBUDT 2.6
  */
 function hovedspringforbudt_scripts_styles() {
 	wp_register_style( 'hovedspring-forbudt-html5-reset', get_template_directory_uri() . '/reset-html5.css', false, '1.0' );
 	wp_enqueue_style( 'hovedspring-forbudt-html5-reset' );
-	wp_register_style( 'hovedspring-forbudt', get_template_directory_uri() . '/style.css', array( 'hovedspring-forbudt-html5-reset' ), '2.4' );
+	wp_register_style( 'hovedspring-forbudt', get_template_directory_uri() . '/style.css', array( 'hovedspring-forbudt-html5-reset' ), '2.6' );
 	wp_enqueue_style( 'hovedspring-forbudt' );
 	if ( ! is_404() ) :
 		wp_enqueue_script( 'jquery' );
-		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.4' );
+		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.6' );
 		wp_enqueue_script( 'hovedspring-forbudt-script' );
 		wp_localize_script( 'hovedspring-forbudt-script', 'hovedspringforbudtAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'hovedspringforbudt_update' ) ) );
 	endif;
@@ -218,7 +218,7 @@ add_action( 'wp_enqueue_scripts', 'hovedspringforbudt_scripts_styles' );
  */
 function hovedspringforbudt_html5extras() {
 	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />' . "\n";
-	echo '<meta name="viewport" content="width=device-width,initial-scale=1" />' . "\n";
+	echo '<meta name="viewport" content="width=device-width,initial-scale=1.0" />' . "\n";
 }
 add_action( 'wp_head', 'hovedspringforbudt_html5extras', 1 );
 
@@ -277,7 +277,7 @@ add_action( 'wp_head', 'hovedspringforbudt_opengraph', 2 );
  * Ajax update new post type
  *
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.0
+ * @last_updated HOVEDSPRING FORBUDT 2.5
  */
 function hovedspringforbudt_ajax_update() {
 	check_ajax_referer( 'hovedspringforbudt_update', 'security' );
