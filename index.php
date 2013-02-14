@@ -18,7 +18,7 @@
 			<?php endif; ?>
 		<?php endif; ?>
 	</section>
-	<section class="post">
+	<section class="fakta">
 		<?php if ( is_single() ) : ?>
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -27,8 +27,8 @@
 			<?php endif; ?>
 		<?php else : ?>
 			<?php $args = array( 'post_type' => 'fakta', 'post_status' => 'publish', 'orderby' => 'rand', 'posts_per_page' => 1 );
-			$random_facts = new WP_Query( $args );
-			while ( $random_facts->have_posts() ) : $random_facts->the_post();
+			$random_fact = new WP_Query( $args );
+			while ( $random_fact->have_posts() ) : $random_fact->the_post();
 				get_template_part( 'content', $theme_post_format );
 			endwhile; ?>
 		<?php endif; ?>
