@@ -1,20 +1,20 @@
 (function($) {
 	$(document).ready(function(){
 		$('html').removeClass('no-js');
-		if(!$.browser.msie) {
-			$('nav a#update').live('click', function() {
+		if (!$.browser.msie) {
+			$(document).on('click', 'nav a#update', function(e) {
 				var data = { action: 'hovedspringforbudt_update', security: hovedspringforbudtAjax.nonce };
 				$.post(hovedspringforbudtAjax.ajaxurl, data, function(response) {
-					var $nav = $('section.post nav').clone();
-					$('section.post').empty().append(response, $nav);
+					var $nav = $('section.fakta nav').clone();
+					$('section.fakta').empty().append(response, $nav);
 				});
-				return false;
+				e.preventDefault();
 			});
 		}
-		$('nav a.social').live('click', function() {
-			var share_url = $(this).parent().siblings('.fakta').attr('data-permalink');
+		$(document).on('click', 'nav a.social', function(e) {
+			var share_url = $(this).parent().siblings('.type-fakta').attr('data-permalink');
 			var share_title = $(this).parent().siblings('h2').text();
-			var share_content = $(this).parent().siblings('.fakta').find('p').text();
+			var share_content = $(this).parent().siblings('.type-fakta').find('p').text();
 			var share_image = $('head link[rel=image_src]').attr('href');
 			if ($(this).attr('id') == 'twitter') {
 				if (share_content.length > 105) {
@@ -24,15 +24,11 @@
 			} else if ($(this).attr('id') == 'facebook') {
 				window.open('http://www.facebook.com/sharer.php?s=100&p[url]=' + encodeURIComponent(share_url) + '&p[title]=' + encodeURIComponent(share_title) + '&p[summary]=' + encodeURIComponent(share_content) + '&p[images][0]=' + encodeURIComponent(share_image), $(this).attr('class'), 'width=550,height=450');
 			} else if ($(this).attr('id') == 'google') {
-				// window.open('https://m.google.com/app/plus/x/?v=compose&content=' + encodeURIComponent(share_title) + ': ' + encodeURIComponent(share_content) + ' - ' + encodeURIComponent(share_url) + '&hideloc=1', $(this).attr('class'), 'width=550,height=450'); // Mobile version
-				window.open('https://plusone.google.com/_/+1/confirm?hl=da&url=' + encodeURIComponent(share_url) + '&title=' + encodeURIComponent(share_title), $(this).attr('class'), 'width=550,height=450'); // Desktop version
-
-				// http://blog.ineedhits.com/tips-advice/how-to-optimize-your-business-google-plus-page-for-ranking-and-results-165410428.html
-				// http://randyjensenonline.com/thoughts/destination-guatemala/
+				window.open('https://plus.google.com/share?url=' + encodeURIComponent(share_url) + '&title=' + encodeURIComponent(share_title) + '&content=' + encodeURIComponent(share_content), $(this).attr('class'), 'width=550,height=450');
 			} else {
 				window.location.href = share_url;
 			}
-			return false;
+			e.preventDefault();
 		});
 	});
 	$(document).keyup(function(event){
