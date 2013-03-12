@@ -3,15 +3,63 @@ Theme Name: HOVEDSPRING FORBUDT
 Description: Used to style the TinyMCE editor.
 */
 
-* { font: 14px Arial, Helvetica, Verdana, sans-serif; font-style: inherit; font-weight: inherit; line-height: 21px; color: inherit; }
+/* CUSTOM FONT */
+@font-face {
+	font-family: 'MuseoSlab500';
+	src: url('fonts/Museo_Slab_500-webfont.eot');
+	src: url('fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/Museo_Slab_500-webfont.woff') format('woff'),
+		 url('fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+		 url('fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'MuseoSans500';
+	src: url('fonts/MuseoSans_500-webfont.eot');
+	src: url('fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/MuseoSans_500-webfont.woff') format('woff'),
+		 url('fonts/MuseoSans_500-webfont.ttf') format('truetype'),
+		 url('fonts/MuseoSans_500-webfont.svg#MuseoSans500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
+body {
+	font: 62.5% Arial, Helvetica, Verdana, sans-serif;
+	line-height: 1.5em;
+	color: #6e6e6e;
+}
+p {
+	font-size: 1.4em;
+	line-height: 1.5em;
+	margin-bottom: 1.5em;
+}
+.post-type-fakta p {
+	font: 2em 'MuseoSans500', Arial, Helvetica, Verdana, sans-serif;
+	line-height: 1.25em;
+	margin-bottom: 0;
+}
+a {
+	color: #333;
+}
+a:hover,
+a:focus {
+	text-decoration: none;
+}
+em,
+i {
+	font-style: italic;
+}
+strong,
+b {
+	font-weight: bold;
+}
 
-body { font: 14px Arial, Helvetica, Verdana, sans-serif;  line-height: 21px; color: #6e6e6e; }
-p { margin-bottom: 1.5em; }
-a { color: #333; }
-a:hover, a:focus { text-decoration: none; }
-em, i { font-style: italic; }
-strong, b { font-weight: bold; }
-
-.mceContentBody { max-width: 524px; }
-.mceContentBody.post-type-fakta {}
+.mceContentBody {
+	max-width: 524px;
+}
+.mceContentBody.post-type-fakta {
+	max-width: 476px;
+	text-transform: uppercase;
+}

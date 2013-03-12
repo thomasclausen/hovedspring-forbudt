@@ -4,7 +4,7 @@
  *
  * @package HOVEDSPRING FORBUDT
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.6
+ * @last_updated HOVEDSPRING FORBUDT 2.7
  */
 
 /**
@@ -52,9 +52,9 @@ function hovedspringforbudt_custom_post_type() {
 		'not_found_in_trash' => __( 'Ingen fakta fundet i papirkurven.', 'hovedspring-forbudt' ),
 	);
 	$args = array(
-		'label' => 'Fakta',
+		'label' => __( 'Fakta', 'hovedspring-forbudt' ),
 		'labels' => $labels,
-		'description' => 'Fakta omkring sv&oslash;mning.',
+		'description' => __( 'Fakta omkring sv&oslash;mning.', 'hovedspring-forbudt' ),
 		'public' => true,
 		'exclude_from_search' => false,
 		'publicly_queryable' => true,
@@ -110,7 +110,6 @@ add_action( 'wp_print_scripts', 'hovedspringforbudt_disable_autosave' );
 function hovedspringforbudt_custom_admin_menus() {
 	remove_menu_page( 'edit.php' ); // Posts
 	remove_menu_page( 'upload.php' ); // Media
-	remove_menu_page( 'link-manager.php' ); // Links
 	remove_menu_page( 'edit-comments.php' ); // Comments
 	
 	remove_submenu_page( 'themes.php', 'widgets.php' ); // Widgets
@@ -131,7 +130,6 @@ function hovedspringforbudt_custom_admin_bar() {
 	
 	$wp_admin_bar->remove_menu( 'new-post', 'new-content' ); // Posts
 	$wp_admin_bar->remove_menu( 'new-media', 'new-content' ); // Media
-	$wp_admin_bar->remove_menu( 'new-link', 'new-content' ); // Links
 	$wp_admin_bar->remove_menu( 'new-user', 'new-content' ); // User
 }
 add_action( 'wp_before_admin_bar_render', 'hovedspringforbudt_custom_admin_bar' );
@@ -167,9 +165,9 @@ add_filter( 'user_contactmethods', 'hovedspringforbudt_user_profile', 10, 1 );
  * Customize the title tag
  *
  * @since HOVEDSPRING FORBUDT 1.0
+ * @last_updated HOVEDSPRING FORBUDT 2.6
  */
 function hovedspringforbudt_custom_title( $title ) {
-	// Don't change wp_title() calls in feeds.
 	if ( is_feed() ) :
 		return $title;
 	endif;
@@ -194,16 +192,16 @@ remove_action( 'wp_head', 'feed_links_extra', 3 );
  * Enqueue scripts and styles
  *
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.6
+ * @last_updated HOVEDSPRING FORBUDT 2.7
  */
 function hovedspringforbudt_scripts_styles() {
 	wp_register_style( 'hovedspring-forbudt-html5-reset', get_template_directory_uri() . '/reset-html5.css', false, '1.0' );
 	wp_enqueue_style( 'hovedspring-forbudt-html5-reset' );
-	wp_register_style( 'hovedspring-forbudt', get_template_directory_uri() . '/style.css', array( 'hovedspring-forbudt-html5-reset' ), '2.6' );
+	wp_register_style( 'hovedspring-forbudt', get_template_directory_uri() . '/style.css', array( 'hovedspring-forbudt-html5-reset' ), '2.7' );
 	wp_enqueue_style( 'hovedspring-forbudt' );
 	if ( ! is_404() ) :
 		wp_enqueue_script( 'jquery' );
-		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.6' );
+		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.7' );
 		wp_enqueue_script( 'hovedspring-forbudt-script' );
 		wp_localize_script( 'hovedspring-forbudt-script', 'hovedspringforbudtAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'hovedspringforbudt_update' ) ) );
 	endif;
@@ -214,11 +212,11 @@ add_action( 'wp_enqueue_scripts', 'hovedspringforbudt_scripts_styles' );
  * Insert HTML5 extras
  *
  * @since HOVEDSPRING FORBUDT 2.3
- * @last_updated HOVEDSPRING FORBUDT 2.4
+ * @last_updated HOVEDSPRING FORBUDT 2.5
  */
 function hovedspringforbudt_html5extras() {
-	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />' . "\n";
-	echo '<meta name="viewport" content="width=device-width,initial-scale=1.0" />' . "\n";
+	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />' . "\n";
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n";
 }
 add_action( 'wp_head', 'hovedspringforbudt_html5extras', 1 );
 
@@ -292,3 +290,23 @@ function hovedspringforbudt_ajax_update() {
 }
 add_action( 'wp_ajax_hovedspringforbudt_update', 'hovedspringforbudt_ajax_update' );
 add_action( 'wp_ajax_nopriv_hovedspringforbudt_update', 'hovedspringforbudt_ajax_update' );
+
+/**
+ * Insert Google Analytics code
+ *
+ * @since HOVEDSPRING FORBUDT 2.7
+ */
+function hovedspringforbudt_googleanalytics() {
+	echo '<script type="text/javascript">' . "\n";
+	echo 'var _gaq = _gaq || [];' . "\n";
+	echo '_gaq.push([\'_setAccount\', \'UA-XXXXXXX-X\']);' . "\n";
+	echo '_gaq.push([\'_trackPageview\']);' . "\n" . "\n";
+
+	echo '(function() {' . "\n";
+		echo  "\t" . 'var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;' . "\n";
+		echo "\t" . 'ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';' . "\n";
+		echo "\t" . 'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);' . "\n";
+	echo '})();' . "\n";
+	echo '</script>' . "\n";
+}
+add_action( 'wp_footer', 'hovedspringforbudt_googleanalytics' );

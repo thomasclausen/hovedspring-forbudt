@@ -1,19 +1,19 @@
-<?php $theme_post_type = get_post_type(); // post, page, attachment etc. ?>
-<?php $theme_post_format = get_post_format(); // standard, gallery, link, status etc. ?>
+<?php $hovedspring_forbudt_post_type = get_post_type(); ?>
+<?php $hovedspring_forbudt_post_format = get_post_format(); ?>
 
-<?php get_header( $theme_post_type ); ?>
+<?php get_header( $hovedspring_forbudt_post_type ); ?>
 
 	<section class="page">
 		<?php if ( is_single() ) : ?>
 			<?php $args = array( 'page_id' => 1 );
 			$front_page = new WP_Query( $args );
 			while ( $front_page->have_posts() ) : $front_page->the_post();
-				get_template_part( 'content', $theme_post_format );
+				get_template_part( 'content', $hovedspring_forbudt_post_format );
 			endwhile; ?>
 		<?php else : ?>
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', $theme_post_format ); ?>
+					<?php get_template_part( 'content', $hovedspring_forbudt_post_format ); ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		<?php endif; ?>
@@ -22,14 +22,14 @@
 		<?php if ( is_single() ) : ?>
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', $theme_post_format ); ?>
+					<?php get_template_part( 'content', $hovedspring_forbudt_post_format ); ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		<?php else : ?>
 			<?php $args = array( 'post_type' => 'fakta', 'post_status' => 'publish', 'orderby' => 'rand', 'posts_per_page' => 1 );
 			$random_fact = new WP_Query( $args );
 			while ( $random_fact->have_posts() ) : $random_fact->the_post();
-				get_template_part( 'content', $theme_post_format );
+				get_template_part( 'content', $hovedspring_forbudt_post_format );
 			endwhile; ?>
 		<?php endif; ?>
 		<nav>
@@ -41,4 +41,4 @@
 		</nav>
 	</section>
 
-<?php get_footer( $theme_post_type ); ?>
+<?php get_footer( $hovedspring_forbudt_post_type ); ?>
