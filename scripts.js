@@ -17,8 +17,8 @@
 			var share_content = $(this).parent().siblings('.type-fakta').find('p').text();
 			var share_image = $('head link[rel=image_src]').attr('href');
 			if ($(this).attr('id') == 'twitter') {
-				if (share_content.length > 105) {
-					share_content = share_content.substring(0, 105) + '...';
+				if (share_content.length > 103) {
+					share_content = share_content.substring(0, 103) + '...';
 				}
 				window.open('https://twitter.com/share?url=' + encodeURIComponent(share_url) + '&text=' + encodeURIComponent(share_title) + ': ' + encodeURIComponent(share_content), $(this).attr('class'), 'width=550,height=450');
 			} else if ($(this).attr('id') == 'facebook') {

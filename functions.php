@@ -4,7 +4,7 @@
  *
  * @package HOVEDSPRING FORBUDT
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.7
+ * @last_updated HOVEDSPRING FORBUDT 2.9
  */
 
 /**
@@ -192,16 +192,16 @@ remove_action( 'wp_head', 'feed_links_extra', 3 );
  * Enqueue scripts and styles
  *
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.7
+ * @last_updated HOVEDSPRING FORBUDT 2.9
  */
 function hovedspringforbudt_scripts_styles() {
 	wp_register_style( 'hovedspring-forbudt-html5-reset', get_template_directory_uri() . '/reset-html5.css', false, '1.0' );
 	wp_enqueue_style( 'hovedspring-forbudt-html5-reset' );
-	wp_register_style( 'hovedspring-forbudt', get_template_directory_uri() . '/style.css', array( 'hovedspring-forbudt-html5-reset' ), '2.7' );
+	wp_register_style( 'hovedspring-forbudt', get_template_directory_uri() . '/style.css', array( 'hovedspring-forbudt-html5-reset' ), '2.9' );
 	wp_enqueue_style( 'hovedspring-forbudt' );
 	if ( ! is_404() ) :
 		wp_enqueue_script( 'jquery' );
-		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.7' );
+		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.9' );
 		wp_enqueue_script( 'hovedspring-forbudt-script' );
 		wp_localize_script( 'hovedspring-forbudt-script', 'hovedspringforbudtAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'hovedspringforbudt_update' ) ) );
 	endif;
