@@ -201,7 +201,7 @@ function hovedspringforbudt_scripts_styles() {
 	wp_enqueue_style( 'hovedspring-forbudt' );
 	if ( ! is_404() ) :
 		wp_enqueue_script( 'jquery' );
-		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.9' );
+		wp_register_script( 'hovedspring-forbudt-script', get_template_directory_uri() . '/script.js', array( 'jquery' ), '2.9', true );
 		wp_enqueue_script( 'hovedspring-forbudt-script' );
 		wp_localize_script( 'hovedspring-forbudt-script', 'hovedspringforbudtAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'hovedspringforbudt_update' ) ) );
 	endif;
