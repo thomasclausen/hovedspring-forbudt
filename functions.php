@@ -85,7 +85,7 @@ add_action( 'after_switch_theme', 'hovedspringforbudt_rewrite_flush' );
  * @since HOVEDSPRING FORBUDT 2.1
  */
 function hovedspringforbudt_custom_post_type_default_listing() {
-	if ( $_GET['post_type'] == 'fakta' ) :
+	if ( $_GET['post_type'] === 'fakta' ) :
 		$_REQUEST['mode'] = 'excerpt';
 	endif;
 }
