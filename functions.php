@@ -4,7 +4,7 @@
  *
  * @package HOVEDSPRING FORBUDT
  * @since HOVEDSPRING FORBUDT 1.0
- * @last_updated HOVEDSPRING FORBUDT 2.9
+ * @last_updated HOVEDSPRING FORBUDT 3.0
  */
 
 /**
@@ -224,6 +224,7 @@ add_action( 'wp_head', 'hovedspringforbudt_html5extras', 1 );
  * Insert HTML5 shiv
  *
  * @since HOVEDSPRING FORBUDT 2.2
+ * @last_updated HOVEDSPRING FORBUDT 3.0
  */
 function hovedspringforbudt_html5shiv() {
 	global $is_IE;
