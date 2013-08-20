@@ -226,9 +226,23 @@ add_action( 'wp_head', 'hovedspringforbudt_html5extras', 1 );
  * @since HOVEDSPRING FORBUDT 2.2
  */
 function hovedspringforbudt_html5shiv() {
-	echo '<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->' . "\n";
+	global $is_IE;
+	if ( $is_IE ) :
+		echo '<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->' . "\n";
+	endif;
 }
 add_action( 'wp_head', 'hovedspringforbudt_html5shiv' );
+
+
+// Call Googles HTML5 Shim, but only for users on old versions of IE
+function wpfme_IEhtml5_shim () {
+	global $is_IE;
+	if ($is_IE)
+	
+}
+add_action('wp_head', 'wpfme_IEhtml5_shim');
+
+
 
 /**
  * Insert custom pingback
