@@ -234,17 +234,6 @@ function hovedspringforbudt_html5shiv() {
 }
 add_action( 'wp_head', 'hovedspringforbudt_html5shiv' );
 
-
-// Call Googles HTML5 Shim, but only for users on old versions of IE
-function wpfme_IEhtml5_shim () {
-	global $is_IE;
-	if ($is_IE)
-	
-}
-add_action('wp_head', 'wpfme_IEhtml5_shim');
-
-
-
 /**
  * Insert custom pingback
  *
