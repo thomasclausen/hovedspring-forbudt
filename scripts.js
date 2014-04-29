@@ -1,17 +1,18 @@
-(function ($) {
-	$(document).ready(function () {
++function($) {
+	'use strict';
+	$(document).ready(function() {
 		$('html').removeClass('no-js');
 		if (!$.browser.msie) {
-			$(document).on('click', 'nav a#update', function (e) {
+			$(document).on('click', 'nav a#update', function(e) {
 				var data = { action: 'hovedspringforbudt_update', security: hovedspringforbudtAjax.nonce };
-				$.post(hovedspringforbudtAjax.ajaxurl, data, function (response) {
+				$.post(hovedspringforbudtAjax.ajaxurl, data, function(response) {
 					var $nav = $('section.fakta nav').clone();
 					$('section.fakta').empty().append(response, $nav);
 				});
 				e.preventDefault();
 			});
 		}
-		$(document).on('click', 'nav a.social', function (e) {
+		$(document).on('click', 'nav a.social', function(e) {
 			var share_url = $(this).parent().siblings('.type-fakta').attr('data-permalink'),
                 share_title = $(this).parent().siblings('h2').text(),
                 share_content = $(this).parent().siblings('.type-fakta').find('p').text(),
@@ -32,9 +33,9 @@
 			e.preventDefault();
 		});
 	});
-	$(document).keyup(function (event) {
+	$(document).keyup(function(event) {
 		if (event.keyCode === 27) {
 			document.location.href = '/wp-admin/';
 		}
 	});
-})(jQuery);
+}(jQuery);
