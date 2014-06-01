@@ -38,6 +38,9 @@
 			<a href="#/twitter" title="<?php _e( 'Twitter', 'hovedspring-forbudt' ); ?>" id="twitter" class="social"><?php _e( 'Twitter', 'hovedspring-forbudt' ); ?></a>
 			<a href="#/facebook" title="<?php _e( 'Facebook', 'hovedspring-forbudt' ); ?>" id="facebook" class="social"><?php _e( 'Facebook', 'hovedspring-forbudt' ); ?></a>
 			<a href="#/googleplus" title="<?php _e( 'Google Plus', 'hovedspring-forbudt' ); ?>" id="google" class="social"><?php _e( 'Google Plus', 'hovedspring-forbudt' ); ?></a>
+			<?php if ( function_exists( 'zilla_likes' ) ) : ?>
+				<?php zilla_likes(); ?>
+			<?php endif; ?>
 		</nav>
 	</section>
 
