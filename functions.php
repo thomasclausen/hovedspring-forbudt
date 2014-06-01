@@ -302,7 +302,7 @@ add_action( 'wp_ajax_nopriv_hovedspringforbudt_update', 'hovedspringforbudt_ajax
  * @last_updated HOVEDSPRING FORBUDT 3.1
  */
 function hovedspringforbudt_googleanalytics() {
-	echo '<script async type="text/javascript">' . "\n";
+	echo '<script type="text/javascript">' . "\n";
 	echo 'var _gaq = _gaq || [];' . "\n";
 	echo '_gaq.push([\'_setAccount\', \'UA-XXXXXXX-X\']);' . "\n";
 	echo '_gaq.push([\'_trackPageview\']);' . "\n" . "\n";
