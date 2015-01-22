@@ -2,18 +2,17 @@
   "name": "hovedspring-forbudt",
   "version": "3.1.0",
   "devDependencies": {
-    "path": "~0.4.9",
-    "gulp": "^3.8.7",
+    "path": "^0.4.10",
+    "gulp": "^3.8.10",
     "gulp-clean": "^0.3.1",
-    "gulp-concat": "^2.3.4",
+    "gulp-concat": "^2.4.3",
     "gulp-rename": "^1.2.0",
-    "gulp-html-replace": "^1.1.0",
+    "gulp-html-replace": "^1.4.3",
     "gulp-cssmin": "^0.1.6",
     "gulp-uglify": "^0.3.2",
-    "gulp-imagemin": "^1.0.1",
-    "gulp-notify": "^1.5.0",
-    "gulp-zip": "^2.0.1",
-    "gulp-watch": "^0.6.9",
-    "gulp-ftp": "^1.0.0"
+    "gulp-imagemin": "^1.2.1",
+    "gulp-zip": "^2.0.2",
+    "gulp-watch": "^0.6.10",
+    "gulp-ftp": "^1.0.1"
   }
 }
