@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
     jsmin = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
-    notify = require('gulp-notify'),
     watch = require('gulp-watch'),
     zip = require('gulp-zip'),
     ftp = require('gulp-ftp'),
@@ -42,23 +41,20 @@ gulp.task('styles', function() {
   return gulp.src(paths.styles)
     .pipe(concat('style.css'))
     .pipe(cssmin())
-    .pipe(gulp.dest(pkg.name))
-    .pipe(notify({ message: 'Styles task complete' }));
+    .pipe(gulp.dest(pkg.name));
 });
  
 gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     .pipe(concat('script.js', {newLine: ';'}))
     .pipe(jsmin())
-    .pipe(gulp.dest(pkg.name))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    .pipe(gulp.dest(pkg.name));
 });
 
 gulp.task('images', function() {
   return gulp.src(paths.images)
     .pipe(imagemin({optimizationLevel: 3, progressive: true, interlaced: true}))
-    .pipe(gulp.dest(pkg.name + '/images'))
-    .pipe(notify({ message: 'Images task complete' }));
+    .pipe(gulp.dest(pkg.name + '/images'));
 });
 
 gulp.task('copy', function() {
