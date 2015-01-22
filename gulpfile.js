@@ -71,8 +71,14 @@ gulp.task('copy', function() {
 gulp.task('replace', ['copy'], function() {
   gulp.src('src/master/master.html')
     .pipe(htmlreplace({
-      'css': '<link rel="stylesheet" id="' + pkg.name + '-css" href="style.min.css" />',
-      'js': '<script src="script.min.js" async></script>'
+      css: {
+        src: 'css/' + pkg.name + '.min.css',
+        tpl: '<link rel="stylesheet" id="' + pkg.name + '-css" href="%s />'
+      },
+      js: {
+        src: 'js/' + pkg.name + '.min.js',
+        tpl: '<script src="%s async></script>'
+      }
     }))
     .pipe(gulp.dest(pkg.name + '/master'));
 });
